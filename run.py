@@ -19,7 +19,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     config = load_toml(args.config_file_path)
     client = openai.OpenAI(api_key=config['model']['OPENAI_API_KEY'])
-    if config['response id'] is None:
+    if 'response id' not in config:
         df = pd.read_csv(config['data']['dataset'])
         model_name = config["model"]["model_name"]
         system_message = config['system_message']['system_message']
