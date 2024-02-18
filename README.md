@@ -37,7 +37,7 @@ pip install -r requirements.txt
 <pre>
 python run.py --config_file_path ${config_file_path}
 </pre>
-After initiating the training process, the response ID will be added to your config file under the name "response ID". This ID is crucial for monitoring the training and validation loss as your model fine-tunes. Please note that each time you run the script, a training job will be submitted to OpenAI, unless a response ID already exists in your config file, in this case, with command: 
+After initiating the training process, the response ID will be added to your original config file under the name "response id". This ID is crucial for monitoring the training and validation loss as your model fine-tunes. Please note that each time you run the script, a training job will be submitted to OpenAI, unless a response ID already exists in your config file, in this case, with command: 
 <pre>
 python run.py --config_file_path ${config_file_path}
 </pre>
