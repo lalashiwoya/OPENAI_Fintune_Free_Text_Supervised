@@ -17,6 +17,6 @@ train_json = "datasets/finetune_training.jsonl"
 val_json = "datasets/finetune_validating.jsonl"
 
 [training]
-n_epochs = 30
-batch_size = 16
+n_epochs = 50
+batch_size = 4
 train_ratio = 0.8
