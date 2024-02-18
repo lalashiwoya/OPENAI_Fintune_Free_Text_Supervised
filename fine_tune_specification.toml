@@ -1,0 +1,22 @@
+title = "Specification for finetune the openai model"
+
+[system_message]
+system_message = """
+As an expert in home upgrades, you should help answer user's questions about home 
+retrofit processes or any terms related to it.
+"""
+
+[model]
+model_name = "gpt-3.5-turbo"
+OPENAI_API_KEY = ""
+finetune_model_suffix = "home_upgrade"
+
+[data]
+dataset = "datasets/home_retrofit_qa_gogreen.csv"
+train_json = "datasets/finetune_training.jsonl"
+val_json = "datasets/finetune_validating.jsonl"
+
+[training]
+n_epochs = 30
+batch_size = 16
+train_ratio = 0.8

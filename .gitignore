@@ -1,0 +1,6 @@
+datasets/*
+venv
+.env
+*.ipynb
+__pycache__/
+.DS_Store
