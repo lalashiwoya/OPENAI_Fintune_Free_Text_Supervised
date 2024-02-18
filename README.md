@@ -36,7 +36,7 @@ pip install -r requirements.txt
 <p>Start the training process by executing:</p>
 <pre>
 python run.py
-<pre>
+</pre>
 <p>Monitor the training process</p>
 After initiating the training process, you will receive a response_id in the terminal. This ID is crucial for monitoring the training and validation loss as your model fine-tunes. To view the training progress, use the following command:
 <pre>
