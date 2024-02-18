@@ -1,4 +1,4 @@
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 import re
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import random
@@ -7,6 +7,7 @@ from typing import Tuple, List, Dict, Any
 import pandas as pd
 import toml
 from openai import FineTuningJob
+import tomli_w
 
 def load_split_pdf(pdf_path:str) -> str:
     pdf_loader = PyPDFLoader(pdf_path)
@@ -118,3 +119,8 @@ def print_training_process(response_id: str, client) -> None:
 
     for event in events:
         print(event.message)
+
+def save_response_id_to_config(config, config_file_path, response_id):
+    with open(config_file_path, "wb") as f:
+        config['response id'] = response_id
+        tomli_w.dump(config, f)
