@@ -9,6 +9,10 @@ import toml
 from openai import FineTuningJob
 import tomli_w
 
+def df_lowercase(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.applymap(lambda x: x.lower() if type(x) == str else x)
+    return df
+
 def load_split_pdf(pdf_path:str) -> str:
     pdf_loader = PyPDFLoader(pdf_path)
     pages = pdf_loader.load()
@@ -34,11 +38,13 @@ def clean_text(text:str) -> str:
 
 def split_texts_to_chunks(text:str)->list:
     r_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=2048,
-    chunk_overlap=20,
+    chunk_size=512,
+    chunk_overlap=10,
     separators=["\n\n", "\n", " ", ""]
     )
-    return r_splitter.split_text(text)
+    texts = r_splitter.split_text(text)
+    texts = [text for text in texts if len(text.split())>10]
+    return texts
 
 # all_page_contents = [load_split_pdf(pdf_path) for pdf_path in glob.glob("datasets/*.pdf")]
 # all_clean_texts = [clean_text(text)for text in all_page_contents]

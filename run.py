@@ -6,7 +6,8 @@ from utils import (
     num_tokens_from_string,
     print_fine_tune_status,
     print_training_process,
-    save_response_id_to_config
+    save_response_id_to_config,
+    df_lowercase
 )
 
 import openai
@@ -21,6 +22,7 @@ if __name__ == "__main__":
     client = openai.OpenAI(api_key=config['model']['OPENAI_API_KEY'])
     if 'response id' not in config:
         df = pd.read_csv(config['data']['dataset'])
+        df = df_lowercase(df)
         model_name = config["model"]["model_name"]
         system_message = config['system_message']['system_message']
         train_ratio = config['training']['train_ratio']
