@@ -29,8 +29,7 @@ if __name__ == "__main__":
 
         print("System_message for your prompt: ", system_message)
 
-        
-
+        df = df.sample(frac=1, random_state=42).reset_index(drop=True)
         data = df.apply(lambda x: prepare_training_conversation(x, system_message), axis=1).tolist()
 
         write_jsonl(data[:int(len(data)*train_ratio)], config["data"]["train_json"])
