@@ -42,3 +42,22 @@ After initiating the training process, the response ID will be added to your ori
 python run.py --config_file_path ${config_file_path}
 </pre>
 you can monitor the training and validation loss directly in the terminal.
+
+## Troubleshooting
+
+### Problem
+
+When attempting to run the application, you might encounter the following error:
+
+<pre>
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'invalid n_epochs: 60', 'type': 'invalid_request_error', 'param': 'n_epochs', 'code': None}}
+</pre>
+
+### Solution
+To resolve this error, ensure that the `n_epochs` parameter is within the valid range supported by the API or model. E.g, reduce the number of epochs.
+
+### Problem
+Jobs submitted remain in the queue for an extended period without being executed.
+
+### Solution
+Consider reducing the batch size.
