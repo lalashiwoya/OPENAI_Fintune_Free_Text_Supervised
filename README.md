@@ -1,4 +1,4 @@
-<h1>Fine tune LLM using custome dataset</h1>
+<h1>Fine tune OpenAI model using custome dataset</h1>
 <h2>Overview</h2>
 <p>This project allows you to fine-tune a chat system using a custom dataset. Follow the instructions below to prepare your dataset, configure your fine-tuning specifications, install necessary dependencies, and initiate the training process.</p>
 <h2>Preparing Your Dataset</h2>
